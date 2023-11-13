@@ -4,8 +4,8 @@
             "name": "Win32",
             "includePath": [
                 "${default}",
-                "${workspaceFolder}/src",
-                "${VULKAN_SDK}/Include"
+                "${VULKAN_SDK}/Include",
+                "${workspaceFolder}/Libraries/GLFW/Include"
             ],
             "defines": [
                 "_DEBUG",
