@@ -20,6 +20,10 @@ function LinkGLFW()
 	filter {}
 end
 
+function IncludeGLM()
+	includedirs "Libraries/glm"
+end
+
 workspace "ChiEngine"
     configurations { "Debug", "Release" }
     location "build"
@@ -50,5 +54,7 @@ project "ChiEngine"
 	IncludeVulkan()
 	LinkVulkan()
 
+	IncludeGLM()
+	
 	IncludeGLFW()
 	LinkGLFW()

@@ -5,7 +5,9 @@
             "includePath": [
                 "${default}",
                 "${VULKAN_SDK}/Include",
-                "${workspaceFolder}/Libraries/GLFW/Include"
+                "${workspaceFolder}/Libraries/GLFW/Include",
+                "${workspaceFolder}/Libraries/glm/glm",
+                "${workspaceFolder}/Libraries/glm"
             ],
             "defines": [
                 "_DEBUG",
