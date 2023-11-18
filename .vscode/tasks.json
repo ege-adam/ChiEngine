@@ -1,0 +1,49 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+        "type": "shell",
+        "label": "Premake5Build",
+        "command": "premake5",
+        "args": ["vs2022"],
+        "problemMatcher": "$msCompile"
+        },
+        {
+            "type": "shell",
+            "label": "VSBuildDebug",
+            "command": "msbuild.exe",
+            "args": [
+                "build/ChiEngine.sln",
+                "/p:Configuration=Debug;",
+            ],
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": ["Premake5Build"]
+        },
+        {
+            "type": "process",
+            "label": "VSBuildRelease",
+            "command": "msbuild.exe",
+            "args": [
+                "build/ChiEngine.sln",
+                "/p:Configuration=Release;",
+            ],
+            "problemMatcher": ["$msCompile"],
+            "group": "build",
+            "dependsOn": ["Premake5Build"]
+        },
+        {
+            "type": "shell",
+            "label": "Run Release",
+            "command": "${workspaceFolder}/bin/Release/ChiEngine.exe",
+            "args": [],
+            "dependsOn": ["VSBuildRelease"],
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}
