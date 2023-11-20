@@ -25,8 +25,10 @@ function IncludeGLM()
 end
 
 function CompileShaders()
-	filter ("files:**/shaders/*")
-		buildmessage ("%{file.directory}")
+	filter {
+			"files:**/shaders/*"
+		}
+		buildmessage ("Compiling Shader: %{file.directory}")
 		buildcommands ('"$(VULKAN_SDK)/bin/glslangValidator" -V -o "%{cfg.buildtarget.directory}/shaders/%{file.name}.spv" "%{file.abspath}"')
 		buildoutputs ("%{cfg.buildtarget.directory}/shaders/%{file.name}.spv")
 	filter {}

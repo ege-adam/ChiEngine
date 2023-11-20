@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-namespace Chi {
+namespace Chi::Renderer {
 	class ChiPipeline {
 		public:
 			ChiPipeline(const std::string& vertexFilePath, const std::string& fragmentFilePath);

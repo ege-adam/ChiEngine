@@ -5,7 +5,7 @@
 
 #include "chi_pipeline.hpp"
 
-namespace Chi {
+namespace Chi::Renderer {
     ChiPipeline::ChiPipeline(const std::string& vertexFilePath, const std::string& fragmentFilePath) {
         createGraphicsPipeLine(vertexFilePath, fragmentFilePath);
     }
