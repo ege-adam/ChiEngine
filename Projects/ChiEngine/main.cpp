@@ -3,7 +3,7 @@
 #include "test_app.hpp"
 
 int main() {
-    Chi::testApp app{};
+    App::testApp app{};
     
     try {
         app.run();

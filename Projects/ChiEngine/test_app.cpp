@@ -1,6 +1,6 @@
 #include "test_app.hpp"
 
-namespace Chi {
+namespace App {
     void testApp::run()
     {
         while (!chiWindow.shouldClose())

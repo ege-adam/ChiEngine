@@ -41,6 +41,8 @@ workspace "ChiEngine"
 	filter { "configurations:Debug" }
 	symbols "On"
 
+	cppdialect "C++20"
+
 	filter { "configurations:Release" }
 		optimize "On"
 	filter { }

@@ -1,10 +1,12 @@
-#ifndef TESTAPP_HPP
-#define TESTAPP_HPP
+#ifndef PROJECTS_CHIENGINE_TEST_APP
+#define PROJECTS_CHIENGINE_TEST_APP
 
 #include "window/chi_window.hpp"
-#include "pipeline/chi_pipeline.hpp"
+#include "renderer/chi_pipeline.hpp"
+#include "Renderer/chi_device.hpp"
 
-namespace Chi{
+
+namespace App {
 	class testApp {
 
 		public:
@@ -13,10 +15,11 @@ namespace Chi{
 			void run();
 
 		private:
-			ChiWindow chiWindow{WIDTH, HEIGHT, "Test App!"};
-			ChiPipeline chiPipeline{".\\shaders\\simple_shader.vert.spv", ".\\shaders\\simple_shader.frag.spv"};
+			Chi::ChiWindow chiWindow{WIDTH, HEIGHT, "Test App!"};
+			Chi::Renderer::ChiPipeline chiPipeline{".\\shaders\\simple_shader.vert.spv", ".\\shaders\\simple_shader.frag.spv"};
+			Chi::Renderer::ChiDevice chiDevice{"Test App"};
 	};
 }
 
 
-#endif  // TESTAPP_HPP
+#endif /* PROJECTS_CHIENGINE_TEST_APP */

@@ -3,26 +3,25 @@
 
 #include<vulkan/vulkan.h>
 #include <string>
+#include <vector>
 
-namespace chi::renderer {
+namespace Chi::Renderer {
+	class ChiDevice {
+		public:
+			ChiDevice(std::string appName) : applicationName(appName) {
+				initVulkan();
+			}
 
-class ChiDevice {
-	public:
-		ChiDevice(std::string appName) : applicationName(appName) {
-			initVulkan();
-		}
+			~ChiDevice() { cleanUp(); }
 
-		~ChiDevice() { cleanUp(); }
+		private:
+			VkInstance instance;
+			const std::string applicationName;
 
-	private:
-		VkInstance instance;
-		const std::string applicationName;
-
-		void initVulkan();
-        void QueryExtensions();
-        void cleanUp();
-};
-
+			void initVulkan();
+			bool QueryExtensions(std::vector<const char*>& requiredExtensions);
+			void cleanUp();
+	};
 } // namespace chi::renderer
 
 #endif  // CHI_RENDERER_CHIDEVICE_HPP
