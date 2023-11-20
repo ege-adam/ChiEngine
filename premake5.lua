@@ -24,6 +24,14 @@ function IncludeGLM()
 	includedirs "Libraries/glm"
 end
 
+function CompileShaders()
+	filter ("files:**/shaders/*")
+		buildmessage ("%{file.directory}")
+		buildcommands ('"$(VULKAN_SDK)/bin/glslangValidator" -V -o "%{cfg.buildtarget.directory}/shaders/%{file.name}.spv" "%{file.abspath}"')
+		buildoutputs ("%{cfg.buildtarget.directory}/shaders/%{file.name}.spv")
+	filter {}
+end
+
 workspace "ChiEngine"
     configurations { "Debug", "Release" }
     location "build"
@@ -33,23 +41,24 @@ workspace "ChiEngine"
 
 	filter { "configurations:Release" }
 		optimize "On"
-
 	filter { }
 
 	targetdir ("Build/Bin/%{prj.name}/%{cfg.longname}")
 	objdir ("Build/Obj/%{prj.name}/%{cfg.longname}")
 
 project "ChiEngine"
+	projectdir = "Projects/ChiEngine"
 	kind "ConsoleApp"
-	files "Projects/ChiEngine/**"
+	files "%{projectdir}/**"
 	language "C++"
 	architecture "x64"
-	location "build/ProjSetup"
+	location "build/ChiEngine"
 	targetdir "bin/%{cfg.buildcfg}"
 	includedirs {
 		"Projects/ChiEngine/"
 	}
 
+	CompileShaders()
 
 	IncludeVulkan()
 	LinkVulkan()

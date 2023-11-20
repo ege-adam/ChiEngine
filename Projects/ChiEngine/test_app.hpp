@@ -1,7 +1,8 @@
 #ifndef TESTAPP_HPP
 #define TESTAPP_HPP
 
-#include "Window/chi_window.hpp"
+#include "window/chi_window.hpp"
+#include "pipeline/chi_pipeline.hpp"
 
 namespace Chi{
 	class testApp {
@@ -13,6 +14,7 @@ namespace Chi{
 
 		private:
 			ChiWindow chiWindow{WIDTH, HEIGHT, "Test App!"};
+			ChiPipeline chiPipeline{".\\shaders\\simple_shader.vert.spv", ".\\shaders\\simple_shader.frag.spv"};
 	};
 }
 

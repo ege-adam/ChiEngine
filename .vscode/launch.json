@@ -8,10 +8,10 @@
         "name": "(Windows) Debug",
         "type": "cppvsdbg",
         "request": "launch",
-        "program": "/bin/Debug/ChiEngine.exe",
+        "program": "${workspaceFolder}/bin/Debug/ChiEngine",
         "args": [],
         "stopAtEntry": false,
-        "cwd": "${workspaceFolder}",
+        "cwd": "${workspaceFolder}/bin/Debug",
         "environment": [],
         "externalConsole": false,
         "preLaunchTask": "VSBuildDebug"

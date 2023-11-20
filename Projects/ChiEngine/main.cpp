@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdexcept>
 #include "test_app.hpp"
 
 int main() {
